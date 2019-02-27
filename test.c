@@ -1,47 +1,151 @@
 # include "fillit.h"
 
+// int main()
+// {
+//     char    **board;
+    
+//     board = ft_create_board(4);
+//     free_two_char(board);
+//     return (0);
+// }
+
+t_flist *read_file_piece(char *fname)
+{
+    t_flist *head;
+
+    head = NULL;
+    head = ft_read_piece(fname);
+    // if (head)
+    //     ft_print_list(&head);
+    return (head);
+}
+
 int main()
 {
-    char    *fname = "text";
-    int byte;
-    int fd;
-    char    buf[22];
-    char    *piece;
-    char    **p;
-    int i, j, k;
+    char **board;
 
-    if ((fd = open(fname, O_RDONLY)) < 0)
-    {
-        printf("open file fail\n");
-        exit(1);
-    }
-    while ((byte = read(fd, buf, 21)) != -1)
-    {
-        buf[byte] = '\0';
-        if (byte != 20 && buf[byte - 2] != '\n')
-        {
-            // printf("byte is %d\n the string is\n%s", byte, buf);
-            // printf("buf[byte - 1] is %c\n", buf[byte - 1]);
-            // break;
-            printf("error\n");
-            exit(1);
-        }
-    }
-    printf("out\n");
-    i = -1;
-    k = 0;
-    p = ft_create_board(4);
-    while (p[++i])
-    {
-        j = -1;
-        while (++j < 4)
-        {
-            p[i][j] = buf[k];
-        }
-        p[i][j] = '\0';
-    }
+    board = ft_create_board(4);
+
+    t_flist *head = read_file_piece("text");
+    ft_backtracking(board, head, 4);
+    ft_print(board);
+    free_list(head);
+    free_two_char(board); 
+
     return (0);
 }
+
+// int main()
+// {
+//     char    **p;
+//     int i;
+
+//     i = -1;
+//     p = ft_create_board(4);
+//     int x[5] = {0};
+//     int y[5] = {0};
+//     p[1][0]='#';
+//     p[1][1]='#';
+//     p[0][0]='#';
+//     p[0][1]='#';
+
+//     ft_get_xy(p,x, y, 4);
+//     while (++i <4)
+// 		printf("%d, %d\n", x[i], y[i]);
+//     return (0);
+// }
+// int main()
+// {
+//     char tmp[] = {
+//                 '.','#','#','#',
+//                 '.','.','#','.',
+//                 '.','.','.','.',
+//                 '.','.','.','.'};
+    
+//     // char tmp[] = {
+//     //             '.','#','#','#',
+//     //             '.','.','#','.',
+//     //             '.','.','.','.',
+//     //             '.','.','.','.'};
+//     t_flist *head;
+//     head = NULL;
+//     head = ft_get_list(head, tmp, 'A');
+//     head = ft_get_list(head, tmp, 'B');
+//    printf("---------- \n");
+//    ft_print_list(&head);
+// //    printf(" --------- \n");
+
+//     return (0);
+// }
+
+// int main()
+// {
+//     char tmp[] = {
+//                 '.','#','#','#',
+//                 '.','.','#','.',
+//                 '.','.','.','.',
+//                 '.','.','.','.'};
+
+//     char    **reg;
+//     reg = get_piece(tmp);
+//     ft_print(reg);
+//     printf("\n");
+
+//     return (0);
+// }
+
+
+// int main()
+// {
+//     char    *fname = "text";
+//     int byte;
+//     int fd;
+//     char    buf1[21];
+//     char    buf2[2];
+//     char    *piece;
+//     char    **p;
+//     t_flist *head;
+//     t_flist *tmp;
+//     int i, j, k;
+
+//     if ((fd = open(fname, O_RDONLY)) < 0)
+//     {
+//         printf("open file fail\n");
+//         exit(1);
+//     }
+//     while ((byte = read(fd, buf1, 20)) > 0)
+//     {
+//         buf1[20] = '\0';
+// //        printf("byte is %d\n the string is\n%s", byte, buf1);
+//         if (byte != 20)
+//         {
+//             printf("read 20 byte error\n");
+//             exit(1);
+//         }
+//         byte = read(fd, buf2, 1);
+//         if (byte != 1 && buf2[byte] != '\n')
+//         {
+//             printf("read 1 byte error\n");
+//             exit(1);
+//         }
+//         head = ft_create_list(buf);
+//     }
+
+    // printf("out\n");
+    // i = -1;
+    // k = 0;
+    // p = ft_create_board(4);
+    // while (p[++i])
+    // {
+    //     j = -1;
+    //     while (++j < 4)
+    //     {
+    //         p[i][j] = buf[k];
+    //     }
+    //     p[i][j] = '\0';
+    // }
+    // return (0);
+// }
 
 //test get_next_line;
 // #include "fillit.h"

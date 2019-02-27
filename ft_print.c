@@ -38,3 +38,22 @@ void	ft_print(char **res)
 		write(1, "\n", 1);
 	}
 }
+
+void	ft_print_list(t_flist **list)
+{
+	t_flist	*tmp;
+
+	tmp = *list;
+	int i;
+	if (list && tmp)
+	{
+		while (tmp)
+		{
+			i = -1;
+			printf("the origin point\n%d, %d %c\n", (tmp->x)[4], (tmp->y)[4],tmp->sym);
+			while (++i < 4)
+				printf("%d, %d\n", (tmp->x)[i], (tmp->y)[i]);
+			tmp = tmp->next;
+		}
+	}
+}

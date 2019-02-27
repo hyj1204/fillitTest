@@ -56,7 +56,7 @@ void    ft_get_xy(char **p, int *x, int *y, int size)
             {
                 x[index] = loop_x - co_x;
                 y[index] = loop_y - co_y;
-                //  printf("offset is %d, %d\n",x[index], y[index]);
+                // printf("offset is %d, %d\n",x[index], y[index]);
                 index++;
             }
         }
@@ -67,14 +67,11 @@ void    ft_get_xy(char **p, int *x, int *y, int size)
 
 t_flist *new_fnode(char **v, char sym)
 {
+    int i = -1;
     t_flist *tf = (t_flist *)malloc(sizeof(t_flist));
     if (!tf)
         return (NULL);
     ft_get_xy(v, tf->x, tf->y, 4);
-    // ft_check_point(v,&(tf->x)[4], &(tf->y)[4]);
-    
-    //  printf("the origin %d, %d\n", (tf->x)[4], (tf->y)[4]);
-
     tf->sym = sym;
     tf->next = NULL;
     return (tf);
