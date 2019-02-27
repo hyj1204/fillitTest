@@ -1,4 +1,47 @@
+# include "fillit.h"
 
+int main()
+{
+    char    *fname = "text";
+    int byte;
+    int fd;
+    char    buf[22];
+    char    *piece;
+    char    **p;
+    int i, j, k;
+
+    if ((fd = open(fname, O_RDONLY)) < 0)
+    {
+        printf("open file fail\n");
+        exit(1);
+    }
+    while ((byte = read(fd, buf, 21)) != -1)
+    {
+        buf[byte] = '\0';
+        if (byte != 20 && buf[byte - 2] != '\n')
+        {
+            // printf("byte is %d\n the string is\n%s", byte, buf);
+            // printf("buf[byte - 1] is %c\n", buf[byte - 1]);
+            // break;
+            printf("error\n");
+            exit(1);
+        }
+    }
+    printf("out\n");
+    i = -1;
+    k = 0;
+    p = ft_create_board(4);
+    while (p[++i])
+    {
+        j = -1;
+        while (++j < 4)
+        {
+            p[i][j] = buf[k];
+        }
+        p[i][j] = '\0';
+    }
+    return (0);
+}
 
 //test get_next_line;
 // #include "fillit.h"
@@ -27,7 +70,6 @@
 //     }
 // }
 
-# include "fillit.h"
 
 // int main()
 // {
@@ -96,35 +138,67 @@
 //     return (0);
 // }
 
-int main()
-{
-    // char test[4][4] =
-    // {
-    //     {'.', '.', '.', '.'},
-    //     {'#', '#', '#', '.'},
-    //     {'#', '.', '.', '.'},
-    //     {'.', '.', '.', '.'}
-    // };
-    char **p;
-    char **k;
-    t_flist *fl;
-    p = ft_create_board(4);
-    k = ft_create_board(4);
-    p[1][0]='#';
-    p[1][1]='#';
-    p[2][1]='#';
-    p[3][1]='#';
 
-    ft_print(p);
+// int main()
+// {
+//     // char test[4][4] =
+//     // {
+//     //     {'.', '.', '.', '.'},
+//     //     {'#', '#', '#', '.'},
+//     //     {'#', '.', '.', '.'},
+//     //     {'.', '.', '.', '.'}
+//     // };
+//     char **p;
+//     // char **k;
+//     t_flist *fl;
+//     p = ft_create_board(4);
+//     // k = ft_create_board(4);
+//     p[1][0]='#';
+//     p[1][1]='#';
+//     p[2][1]='#';
+//     p[3][1]='#';
+
+//     ft_print(p);
+  
+//     printf("\n");
+//     // printf("append node\n");
+//     // fl = new_fnode(p, 'A');
+//     // printf("finish new node\n");
+//     printf("%d\n",check_count(p));
+
+//     return (0);
+// }
+
+
+// int main()
+// {
+//     // char test[4][4] =
+//     // {
+//     //     {'.', '.', '.', '.'},
+//     //     {'#', '#', '#', '.'},
+//     //     {'#', '.', '.', '.'},
+//     //     {'.', '.', '.', '.'}
+//     // };
+//     char **p;
+//     char **k;
+//     t_flist *fl;
+//     p = ft_create_board(4);
+//     k = ft_create_board(4);
+//     p[1][0]='#';
+//     p[1][1]='#';
+//     p[2][1]='#';
+//     p[3][1]='#';
+
+//     ft_print(p);
   
 
-    printf("append node\n");
-    fl = new_fnode(p, 'A');
-    printf("finish new node\n");
-    printf("%d\n",check_relate(fl->x, fl->y));
+//     printf("append node\n");
+//     fl = new_fnode(p, 'A');
+//     printf("finish new node\n");
+//     printf("%d\n",check_relate(fl->x, fl->y));
 
-    return (0);
-}
+//     return (0);
+// }
 
 // int main()
 // {

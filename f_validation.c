@@ -5,6 +5,26 @@ static int diff(int x, int y)
     return (((x - y) == 1)|| ((y - x) == 1));
 }
 
+int     check_count(char **p)
+{
+    int i;
+    int j;
+    int reg;
+
+    i = -1;
+    reg = 0;
+    while (p[++i])
+    {
+        j = -1;
+        while (p[i][++j])
+        {
+            if (p[i][j] != '.')
+                reg += 1;
+        }
+    }
+    return (reg);
+}
+
 int     check_relate(int *x, int *y)
 {
     int i;
