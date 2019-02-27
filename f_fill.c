@@ -43,7 +43,7 @@ int		ft_fill_chk(t_flist *cur, char **board, int yrow, int xcol, int size)
 void		ft_fill_put(t_flist *cur, char **board, int yrow, int xcol)
 {
 	int	i;
-	
+
 	i = -1;
 	while(++i < 4)
 		board[yrow + (cur->x)[i]][xcol + (cur->y)[i]] = cur->sym;
@@ -52,7 +52,7 @@ void		ft_fill_put(t_flist *cur, char **board, int yrow, int xcol)
 void		ft_fill_remove(t_flist *cur, char **board, int yrow, int xcol)
 {
 	int	i;
-	
+
 	i = -1;
 	while(++i < 4)
 		board[yrow + (cur->x)[i]][xcol + (cur->y)[i]] = '.';
@@ -62,8 +62,6 @@ int ft_backtracking(char **board, t_flist *cur, int size)
 {
 	int row, col;
 	
-	char **copy;
-
 	if (!cur)
 		return (1);
 	else
@@ -87,7 +85,7 @@ int ft_backtracking(char **board, t_flist *cur, int size)
 						ft_fill_remove(cur, board, row, col);
 						// ft_print(board);
 						// printf("\n");
-					}	
+					}
 				}
 				col++;
 			}

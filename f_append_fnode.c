@@ -34,10 +34,10 @@ int ft_check_point(char **tet, int *ycnt, int *xcnt)
 	}
     // printf("the origin %d, %d\n", *ycnt, *xcnt);
 	return (1);
-	// printf("%d\n", *ycnt);	
+	// printf("%d\n", *ycnt);
 }
 
-void    ft_get_xy(char **p, int *x, int *y, int size)
+void    ft_get_xy(char **p, int *x, int *y)
 {
     int co_x = 4,co_y = 4;
     int loop_x, loop_y;
@@ -67,11 +67,10 @@ void    ft_get_xy(char **p, int *x, int *y, int size)
 
 t_flist *new_fnode(char **v, char sym)
 {
-    int i = -1;
     t_flist *tf = (t_flist *)malloc(sizeof(t_flist));
     if (!tf)
         return (NULL);
-    ft_get_xy(v, tf->x, tf->y, 4);
+    ft_get_xy(v, tf->x, tf->y);
     tf->sym = sym;
     tf->next = NULL;
     return (tf);
@@ -90,7 +89,7 @@ t_flist *append_fnode(t_flist *head, t_flist *node)
             tmp = tmp->next;
         tmp->next = node;
         return (head);
-    } 
+    }
 }
 
 // void    append_fnode(t_flist **fl, char sym, char **v)
