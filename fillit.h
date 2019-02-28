@@ -39,7 +39,7 @@ void	ft_print(char **res);
 void    free_flist(t_flist *head);
 
 int     validate_node(t_flist *node);
-void    ft_get_xy(char **p, int *x, int *y, int size);
+void    ft_get_xy(char **p, int *x, int *y);
 int     ft_check_point(char **tet, int *ycnt, int *xcnt);
 
 t_flist *ft_get_list(t_flist *head, char buf[], char sym);

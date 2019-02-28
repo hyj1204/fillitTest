@@ -64,8 +64,6 @@ void		ft_fill_remove(t_flist *cur, char **board, int yrow, int xcol)
 int ft_backtracking(char **board, t_flist *cur, int size)
 {
 	int row, col;
-	
-	char **copy;
 
 	if (!cur)
 		return (1);

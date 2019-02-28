@@ -6,7 +6,6 @@ t_flist     *ft_read_piece(char *av)
     int fd;
     char    buf1[21];
     char    buf2[2];
-    char    *piece;
     t_flist *head;
     int id;
 
@@ -44,7 +43,6 @@ t_flist     *ft_read_piece(char *av)
 t_flist *ft_get_list(t_flist *head, char buf[], char sym)
 {
     char    **piece;
-    int     reg;
     t_flist *t;
 
     piece = ft_to_piece(buf);

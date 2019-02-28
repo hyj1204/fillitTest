@@ -37,7 +37,7 @@ int ft_check_point(char **tet, int *ycnt, int *xcnt)
 	// printf("%d\n", *ycnt);	
 }
 
-void    ft_get_xy(char **p, int *x, int *y, int size)
+void    ft_get_xy(char **p, int *x, int *y)
 {
     int co_x = 4,co_y = 4;
     int loop_x, loop_y;
@@ -67,11 +67,10 @@ void    ft_get_xy(char **p, int *x, int *y, int size)
 
 t_flist *new_fnode(char **v, char sym)
 {
-    int i = -1;
     t_flist *tf = (t_flist *)malloc(sizeof(t_flist));
     if (!tf)
         return (NULL);
-    ft_get_xy(v, tf->x, tf->y, 4);
+    ft_get_xy(v, tf->x, tf->y);
     tf->sym = sym;
     tf->next = NULL;
     return (tf);
