@@ -20,18 +20,40 @@ t_flist *read_file_piece(char *fname)
     return (head);
 }
 
-int main()
+int main(int argc, char **argv)
 {
     char **board;
+    int pcs;
+    t_flist *head;
+    int reg;
+    int size;
 
-    board = ft_create_board(4);
-
-    t_flist *head = read_file_piece("text");
-    ft_backtracking(board, head, 4);
-    ft_print(board);
+    reg = 0;
+    size = 0;
+    head = read_file_piece(argv[1]);
+    // printf("get length\n");
+    pcs =  ft_get_list_length(head);
+    while (size * size < pcs * 4)
+        size++;
+    // printf("size is %d\n", size);
+    while (reg == 0)
+    {
+//       printf("size is %d\n", size);
+        board = ft_create_board(size);
+//        printf("init board\n");
+//        ft_print(board);
+        // printf("------\n");
+        reg = ft_backtracking(board, head, size);
+//        printf("reg is %d\n", reg);
+        if (reg == 1)
+            break;
+        // printf("after back track\n");
+        free_two_char(board);
+        size++;
+    }
     free_list(head);
-    free_two_char(board); 
-
+    ft_print(board);
+    // free_two_char(board);
     return (0);
 }
 

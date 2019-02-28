@@ -93,42 +93,15 @@ t_flist *append_fnode(t_flist *head, t_flist *node)
     } 
 }
 
-// void    append_fnode(t_flist **fl, char sym, char **v)
-// {
-//     t_flist *tmp;
+int     ft_get_list_length(t_flist *list)
+{
+    int i;
 
-//     tmp = *fl;
-//     if (fl)
-//     {
-//         if (!(*fl))
-//         {
-//             *fl = new_fnode(v, sym);
-//         }
-//         else
-//         {
-//             while (tmp->next)
-//                 tmp = tmp->next;
-//             tmp->next = new_fnode(v, sym);
-//         }
-//     }
-// }
-
-// t_flist *append_fnode(t_flist **fl, char sym)
-// {
-//     t_flist *tmp;
-
-//     tmp = *fl;
-//     if (fl)
-//     {
-//         if (!(*fl))
-//             *fl = new_fnode(p);
-//         else
-//         {
-//             while (tmp->next)
-//                 tmp = tmp->next;
-//             tmp->next = new_fnode(p);
-//         }
-//         return (*fl);
-//     }
-//     return (NULL);
-// }
+    i = 0;
+    while (list)
+    {
+        list = list->next;
+        i++;
+    }
+    return (i);
+}

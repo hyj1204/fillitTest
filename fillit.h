@@ -1,7 +1,6 @@
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# include "get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -55,5 +54,6 @@ char    **ft_to_piece(char buf[]);
 t_flist *read_file_piece(char *fname);
 void    free_list(t_flist *list);
 void    free_two_char(char **b);
+int     ft_get_list_length(t_flist *list);
 
 #endif

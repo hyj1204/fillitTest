@@ -4,7 +4,10 @@ int    ft_fill(t_flist *cur, char **board, int yrow, int xcol, int size)
 {
     if (ft_fill_chk(cur, board, yrow, xcol, size))
     {
+//		printf("before fill the block\n");
         ft_fill_put(cur, board, yrow, xcol);
+//		ft_print(board);
+//		printf("finished fill\n");
         return (1);
     }
     return (0);

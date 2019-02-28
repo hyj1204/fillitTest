@@ -106,12 +106,12 @@ char	**ft_create_board(int size)
 
 	i = 0;
 	j = 0;
-	if (!(board = (char**)malloc(sizeof(char*) * size + 1)))
+	if (!(board = (char**)malloc(sizeof(char*) * (size + 1))))
 		return (NULL);
 	board[size] = NULL;
 	while (i < size)
 	{
-		if (!(board[i] = (char*)malloc(sizeof(char*) * size + 1)))
+		if (!(board[i] = (char*)malloc(sizeof(char*) * (size + 1))))
 			return (NULL);
 		board[i][size] = '\0';
 		i++;
