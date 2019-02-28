@@ -1,7 +1,6 @@
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/types.h>
@@ -16,11 +15,6 @@ typedef struct f_list
     struct f_list   *next;
 }               t_flist;
 
-// void    ft_create_list(char **p, t_flist **fl, char sym);
-
-// int f_getinput(char	*fname,t_flist **fl);
-// int valid_line(char *line);
-// void    append_fnode(t_flist **fl, char p, char **v);
 t_flist *new_fnode(char **v, char sym);
 
 void	ft_format_board(char **board, int size);
@@ -56,4 +50,9 @@ void    free_list(t_flist *list);
 void    free_two_char(char **b);
 int     ft_get_list_length(t_flist *list);
 
+void	ft_usage(void);
+void    ft_open_error(void);
+void    ft_byte_error(void);
+void    ft_piece_num_error(void);
+void    ft_piece_relate_error(void);
 #endif

@@ -1,22 +1,11 @@
 # include "fillit.h"
 
-// int main()
-// {
-//     char    **board;
-    
-//     board = ft_create_board(4);
-//     free_two_char(board);
-//     return (0);
-// }
-
 t_flist *read_file_piece(char *fname)
 {
     t_flist *head;
 
     head = NULL;
     head = ft_read_piece(fname);
-    // if (head)
-    //     ft_print_list(&head);
     return (head);
 }
 
@@ -30,35 +19,25 @@ int main(int argc, char **argv)
 
     if (argc == 1)
     {
-        printf("specify file name\n");
-        exit(1);
+        ft_usage();
     }
     reg = 0;
     size = 0;
     head = read_file_piece(argv[1]);
-    // printf("get length\n");
     pcs =  ft_get_list_length(head);
     while (size * size < pcs * 4)
         size++;
-    // printf("size is %d\n", size);
     while (reg == 0)
     {
-//       printf("size is %d\n", size);
         board = ft_create_board(size);
-//        printf("init board\n");
-//        ft_print(board);
-        // printf("------\n");
         reg = ft_backtracking(board, head, size);
-//        printf("reg is %d\n", reg);
         if (reg == 1)
             break;
-        // printf("after back track\n");
         free_two_char(board);
         size++;
     }
     free_list(head);
     ft_print(board);
-    // free_two_char(board);
     return (0);
 }
 

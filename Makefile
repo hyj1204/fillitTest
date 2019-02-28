@@ -7,7 +7,8 @@ SRC = main.c \
 	  f_append_fnode.c \
 	  f_validation.c \
 	  f_print.c \
-	  f_free.c
+	  f_free.c \
+	  f_error.c
 
 OBJ = $(SRC:.c=.o)
 
