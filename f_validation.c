@@ -19,7 +19,7 @@ int     check_count(char **p)
         while (p[i][++j])
         {
             if (p[i][j] == '#')
-                reg += 1
+                reg += 1;
 //            if (p[i][j] != '.')
 //                reg += 1;
         }
