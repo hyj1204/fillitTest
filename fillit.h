@@ -55,4 +55,5 @@ void    ft_open_error(void);
 void    ft_byte_error(void);
 void    ft_piece_num_error(void);
 void    ft_piece_relate_error(void);
+void    ft_piece_sym_error(void);
 #endif

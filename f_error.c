@@ -29,3 +29,9 @@ void    ft_piece_relate_error(void)
     write(1, "error\n", 6);
     exit(0);
 }
+
+void    ft_piece_sym_error(void)
+{
+    write(1, "error\n", 6);
+    exit(0);
+}

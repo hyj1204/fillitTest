@@ -38,6 +38,8 @@ int main(int argc, char **argv)
     }
     free_list(head);
     ft_print(board);
+    free_two_char(board);
+    // sleep(10);
     return (0);
 }
 

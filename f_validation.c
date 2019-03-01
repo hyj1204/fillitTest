@@ -20,8 +20,8 @@ int     check_count(char **p)
         {
             if (p[i][j] == '#')
                 reg += 1;
-//            if (p[i][j] != '.')
-//                reg += 1;
+            else if (p[i][j] != '.')
+                ft_piece_sym_error();
         }
     }
     if (reg != 4)
