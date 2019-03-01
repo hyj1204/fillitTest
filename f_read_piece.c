@@ -19,16 +19,9 @@ t_flist     *ft_read_piece(char *av)
     {
         buf1[20] = '\0';
         if (byte1 != 20)
-        {
-            printf("20 byte error\n");
-            exit(0);
-        }    
+            ft_byte_error();
         byte2 = read(fd, buf2, 1);
-        printf("byte %d\n", byte2);
         buf2[1] = '\0';
-        // if (byte2 == 0)
-        //     break;
-        // printf("byte2 is %d and %d +++++\n", byte2, buf2[0]);
         buf2[0] = '\0';
     }
     if (byte1 == 0 && byte2 == -1)
