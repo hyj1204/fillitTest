@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   f_append_fnode.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/03/02 21:44:38 by xinzhang          #+#    #+#             */
+/*   Updated: 2019/03/02 21:45:11 by xinzhang         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
 int ft_check_point(char **tet, int *ycnt, int *xcnt)
@@ -15,8 +27,6 @@ int ft_check_point(char **tet, int *ycnt, int *xcnt)
 			{
 				if (*ycnt > y)
 					*ycnt = y;
-				// if (*xcnt > x)
-				// 	*xcnt = x;
 			}
 		}
 	}
@@ -32,9 +42,7 @@ int ft_check_point(char **tet, int *ycnt, int *xcnt)
 					*xcnt = x;
 		}
 	}
-    // printf("the origin %d, %d\n", *ycnt, *xcnt);
 	return (1);
-	// printf("%d\n", *ycnt);	
 }
 
 void    ft_get_xy(char **p, int *x, int *y)
@@ -44,7 +52,6 @@ void    ft_get_xy(char **p, int *x, int *y)
     int index;
 
     ft_check_point(p, &co_x, &co_y);
-    // printf("coordinate is %d, %d\n", co_x, co_y);
     loop_x = co_x;
     index = 0;
     for (; p[loop_x]  && index < 4; loop_x++)
@@ -56,7 +63,6 @@ void    ft_get_xy(char **p, int *x, int *y)
             {
                 x[index] = loop_x - co_x;
                 y[index] = loop_y - co_y;
-                // printf("offset is %d, %d\n",x[index], y[index]);
                 index++;
             }
         }
