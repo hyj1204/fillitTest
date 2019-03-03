@@ -12,18 +12,6 @@
 
 #include "fillit.h"
 
-void	ft_usage(void)
-{
-	write(1, "usage: ./fillit <FILE>\n", 23);
-	exit(0);
-}
-
-void	ft_error(void)
-{
-	write(1, "error\n", 6);
-	exit(0);
-}
-
 void	ft_print(char **res)
 {
 	int x;
@@ -39,21 +27,21 @@ void	ft_print(char **res)
 	}
 }
 
-void	ft_print_list(t_flist **list)
-{
-	t_flist	*tmp;
+// void	ft_print_list(t_flist **list)
+// {
+// 	t_flist	*tmp;
 
-	tmp = *list;
-	int i;
-	if (list && tmp)
-	{
-		while (tmp)
-		{
-			i = -1;
-			printf("the origin point\n%d, %d %c\n", (tmp->x)[4], (tmp->y)[4],tmp->sym);
-			while (++i < 4)
-				printf("%d, %d\n", (tmp->x)[i], (tmp->y)[i]);
-			tmp = tmp->next;
-		}
-	}
-}
+// 	tmp = *list;
+// 	int i;
+// 	if (list && tmp)
+// 	{
+// 		while (tmp)
+// 		{
+// 			i = -1;
+// 			printf("the origin point\n%d, %d %c\n", (tmp->x)[4], (tmp->y)[4],tmp->sym);
+// 			while (++i < 4)
+// 				printf("%d, %d\n", (tmp->x)[i], (tmp->y)[i]);
+// 			tmp = tmp->next;
+// 		}
+// 	}
+// }

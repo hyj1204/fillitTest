@@ -1,37 +1,44 @@
 # include "fillit.h"
 
-// int main()
-// {
-//     char    **board;
-    
-//     board = ft_create_board(4);
-//     free_two_char(board);
-//     return (0);
-// }
-
 t_flist *read_file_piece(char *fname)
 {
     t_flist *head;
 
     head = NULL;
     head = ft_read_piece(fname);
-    // if (head)
-    //     ft_print_list(&head);
     return (head);
 }
 
-int main()
+int main(int argc, char **argv)
 {
     char **board;
+    int pcs;
+    t_flist *head;
+    int reg;
+    int size;
 
-    board = ft_create_board(4);
-
-    t_flist *head = read_file_piece("text");
-    ft_backtracking(board, head, 4);
-    ft_print(board);
+    if (argc == 1)
+    {
+        ft_usage();
+    }
+    reg = 0;
+    size = 0;
+    head = read_file_piece(argv[1]);
+    pcs =  ft_get_list_length(head);
+    while (size * size < pcs * 4)
+        size++;
+    while (reg == 0)
+    {
+        board = ft_create_board(size);
+        reg = ft_backtracking(board, head, size);
+        if (reg == 1)
+            break;
+        free_two_char(board);
+        size++;
+    }
     free_list(head);
-    free_two_char(board); 
-
+    ft_print(board);
+    free_two_char(board);
     return (0);
 }
 
@@ -61,7 +68,7 @@ int main()
 //                 '.','.','#','.',
 //                 '.','.','.','.',
 //                 '.','.','.','.'};
-    
+
 //     // char tmp[] = {
 //     //             '.','#','#','#',
 //     //             '.','.','#','.',
@@ -156,21 +163,21 @@ int main()
 // int fd;
 //     int reg;
 //     char    *line;
-   
+
 //     int p_count;
 //     int     i;
-  
-    
+
+
 //     line = NULL;
 //     reg = 0;
-  
+
 //     fd = open(fname, O_RDONLY);
-  
+
 
 //     while (((reg = get_next_line(fd, &line)) != 0) )
 // 	{
 //         printf("%s", line);
-        
+
 //     }
 // }
 
@@ -263,7 +270,7 @@ int main()
 //     p[3][1]='#';
 
 //     ft_print(p);
-  
+
 //     printf("\n");
 //     // printf("append node\n");
 //     // fl = new_fnode(p, 'A');
@@ -294,7 +301,7 @@ int main()
 //     p[3][1]='#';
 
 //     ft_print(p);
-  
+
 
 //     printf("append node\n");
 //     fl = new_fnode(p, 'A');
@@ -331,8 +338,8 @@ int main()
 //     *fl = NULL;
 //     printf("append node\n");
 //     append_fnode(fl, 'A', p);
-  
-    
+
+
 //     append_fnode(fl, 'B', k);
 //     printf("print list\n");
 //     ft_printf_list(fl);

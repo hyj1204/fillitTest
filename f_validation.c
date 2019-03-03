@@ -18,11 +18,15 @@ int     check_count(char **p)
         j = -1;
         while (p[i][++j])
         {
-            if (p[i][j] != '.')
+            if (p[i][j] == '#')
                 reg += 1;
+            else if (p[i][j] != '.')
+                ft_piece_sym_error();
         }
     }
-    return (reg);
+    if (reg != 4)
+        return (0);
+    return (1);
 }
 
 int     check_relate(int *x, int *y)
