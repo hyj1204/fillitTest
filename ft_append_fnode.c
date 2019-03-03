@@ -6,7 +6,7 @@
 /*   By: xinzhang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 21:44:38 by xinzhang          #+#    #+#             */
-/*   Updated: 2019/03/02 21:45:11 by xinzhang         ###   ########.fr       */
+/*   Updated: 2019/03/02 21:59:16 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,21 @@ void    ft_get_xy(char **p, int *x, int *y)
     ft_check_point(p, &co_x, &co_y);
     loop_x = co_x;
     index = 0;
-    for (; p[loop_x]  && index < 4; loop_x++)
-    {
-        loop_y = 0;
-        for (; p[loop_x][loop_y] && index < 4; loop_y++)
-        {
-            if (p[loop_x][loop_y] == '#')
-            {
+	while (p[loop_x] && index < 4)
+	{
+		loop_y = 0;
+		while (p[loop_x][loop_y] && index < 4)
+		{
+			if (p[loop_x][loop_y] == '#')
+			{
                 x[index] = loop_x - co_x;
                 y[index] = loop_y - co_y;
                 index++;
-            }
-        }
-    }
+			}
+			loop_y++;
+		}
+		loop_x++;
+	}	
     x[index] = co_x;
     y[index] = co_y;
 }
