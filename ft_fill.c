@@ -6,23 +6,23 @@
 /*   By: yijhuang <yijhuang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 22:42:31 by yijhuang          #+#    #+#             */
-/*   Updated: 2019/03/02 22:57:39 by yijhuang         ###   ########.fr       */
+/*   Updated: 2019/03/03 10:25:43 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	ft_fill(t_flist *cur, char **board, int yrow, int xcol, int size)
+int		ft_fill(t_flist *cur, char **board, int coor[], int size)
 {
-	if (ft_fill_chk(cur, board, yrow, xcol, size))
+	if (ft_fill_chk(cur, board, coor, size))
 	{
-		ft_fill_put(cur, board, yrow, xcol);
+		ft_fill_put(cur, board, coor[0], coor[1]);
 		return (1);
 	}
 	return (0);
 }
 
-int	ft_fill_chk(t_flist *cur, char **board, int yrow, int xcol, int size)
+int		ft_fill_chk(t_flist *cur, char **board, int coor[], int size)
 {
 	int		i;
 	int		j;
@@ -32,16 +32,16 @@ int	ft_fill_chk(t_flist *cur, char **board, int yrow, int xcol, int size)
 
 	i = -1;
 	j = 0;
-	b_x = yrow;
-	b_y = xcol;
+	b_x = coor[0];
+	b_y = coor[1];
 	sym = cur->sym;
-	if (board[yrow][xcol] != '.')
+	if (board[coor[0]][coor[1]] != '.')
 		return (0);
 	while (++i < 4)
 	{
-		if (yrow + (cur->x)[i] >= size || xcol + (cur->y)[i] >= size || yrow + \
-				(cur->x)[i] < 0 || xcol + (cur->y)[i] < 0 || board[yrow + \
-				(cur->x)[i]][xcol + (cur->y)[i]] != '.')
+		if (coor[0] + (cur->x)[i] >= size || coor[1] + (cur->y)[i]\
+		>= size || coor[0] + (cur->x)[i] < 0 || coor[1] + (cur->y)[i]\
+		< 0 || board[coor[0] + (cur->x)[i]][coor[1] + (cur->y)[i]] != '.')
 			return (0);
 	}
 	return (1);
@@ -65,27 +65,26 @@ void	ft_fill_remove(t_flist *cur, char **board, int yrow, int xcol)
 		board[yrow + (cur->x)[i]][xcol + (cur->y)[i]] = '.';
 }
 
-int	ft_backtracking(char **board, t_flist *cur, int size)
+int		ft_backtracking(char **board, t_flist *cur, int size)
 {
-	int row;
-	int col;
+	int	coor[2];
 
 	if (!cur)
 		return (1);
 	else
 	{
-		row = -1;
-		while (++row < size)
+		coor[0] = -1;
+		while (++coor[0] < size)
 		{
-			col = -1;
-			while (++col < size)
+			coor[1] = -1;
+			while (++coor[1] < size)
 			{
-				if (ft_fill(cur, board, row, col, size))
+				if (ft_fill(cur, board, coor, size))
 				{
 					if (ft_backtracking(board, cur->next, size))
 						return (1);
 					else
-						ft_fill_remove(cur, board, row, col);
+						ft_fill_remove(cur, board, coor[0], coor[1]);
 				}
 			}
 		}
