@@ -42,8 +42,6 @@ int		validate_node(t_flist *node);
 void	ft_get_xy(char **p, int *x, int *y);
 int		ft_check_point(char **tet, int *ycnt, int *xcnt);
 t_flist	*ft_get_list(t_flist *head, char buf[], char sym);
-// int		ft_fill(t_flist *cur, char **board, int yrow, int xcol, int size);
-// int		ft_fill_chk(t_flist *cur, char **board, int yrow, int xcol, int size);
 int		ft_fill(t_flist *cur, char **board, int co[], int size);
 int		ft_fill_chk(t_flist *cur, char **board, int co[], int size);
 void	ft_fill_put(t_flist *cur, char **board, int yrow, int xcol);
@@ -63,5 +61,5 @@ void	ft_byte_error(void);
 void	ft_piece_num_error(void);
 void	ft_error(void);
 
-int main_helper(char **board, t_flist *head, int size);
+int 	main_helper(char **board, t_flist *head, int size);
 #endif

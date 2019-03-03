@@ -12,10 +12,10 @@
 
 #include "fillit.h"
 
-int	ft_check_point(char **tet, int *ycnt, int *xcnt)
+int				ft_check_point(char **tet, int *ycnt, int *xcnt)
 {
-	int x;
-	int y;
+	int			x;
+	int			y;
 
 	y = -1;
 	while (tet[++y] != NULL)
@@ -39,115 +39,38 @@ int	ft_check_point(char **tet, int *ycnt, int *xcnt)
 	return (1);
 }
 
-// void	ft_get_xy(char **p, int *x, int *y)
-// {
-// 	int	co_x;
-// 	int	co_y;
-// 	int loop_x;
-// 	int	loop_y;
-// 	int	index;
-
-// 	co_x = 4;
-// 	co_y = 4;
-//     ft_check_point(p, &co_x, &co_y);
-//     loop_x = co_x;
-//     index = 0;
-//     ft_get_xy_helper(p, x, y, co_x, co_y);
-	
-// 	x[index] = co_x;
-// 	y[index] = co_y;
-// }
-
-// void	ft_get_xy_helper(char **p, int *x, int *y, int	co_x, int co_y)
-// {
-// 	int	loop_x;
-// 	int	loop_y;
-// 	int	index;
-	
-// 	loop_x =co_x;
-// 	loop_y = 0;
-// 	index = 0;
-// 	while (p[loop_x] && index < 4)
-// 	{
-// 		loop_y = -1;
-// 		while (p[loop_x][++loop_y] && index < 4)
-// 		{
-// 			if (p[loop_x][loop_y] == '#')
-// 			{
-// 				x[index] = loop_x - co_x;
-// 				y[index] = loop_y - co_y;
-// 				index++;
-// 			}
-// 		}
-// 		loop_x++;
-// 	}
-// 	x[index] = co_x;
-// 	y[index] = co_y;
-// }
-
-// void	ft_get_xy(char **p, int *x, int *y)
-// {
-// 	int	val[5];
-
-// 	val[0] = 4;
-// 	val[1] = 4;
-// 	ft_check_point(p, &val[0], &val[1]);
-// 	val[2] = val[0];
-// 	val[4] = 0;
-// 	while (p[val[2]] && val[4] < 4)
-// 	{
-// 		val[3] = 0;
-// 		while (p[val[2]][val[3]] && val[4] < 4)
-// 		{
-// 			if (p[val[2]][val[3]] == '#')
-// 			{
-// 				x[val[4]] = val[2] - val[0];
-// 				x[val[4]] = val[3] - val[1];
-// 				val[4]++;
-// 			}
-// 			val[3]++;
-// 		}
-// 		val[2]++;
-// 	}
-// 	x[val[4]] = val[0];
-// 	y[val[4]] = val[1];
-// }
-
-void	ft_get_xy(char **p, int *x, int *y)
+void			ft_get_xy(char **p, int *x, int *y)
 {
-	int	co_x;
-	int	co_y;
-	int loop_x;
-	int	loop_y;
-	int	index;
+	int			co_x;
+	int			co_y;
+	int			loop_arr[2];
+	int			index;
 
 	co_x = 4;
 	co_y = 4;
 	ft_check_point(p, &co_x, &co_y);
-	loop_x = co_x;
+	loop_arr[0] = co_x - 1;
 	index = 0;
-	while (p[loop_x] && index < 4)
+	while (p[++loop_arr[0]] && index < 4)
 	{
-		loop_y = 0;
-		while (p[loop_x][loop_y] && index < 4)
+		loop_arr[1] = -1;
+		while (p[loop_arr[0]][++loop_arr[1]] && index < 4)
 		{
-			if (p[loop_x][loop_y] == '#')
+			if (p[loop_arr[0]][loop_arr[1]] == '#')
 			{
-				x[index] = loop_x - co_x;
-				y[index] = loop_y - co_y;
+				x[index] = loop_arr[0] - co_x;
+				y[index] = loop_arr[1] - co_y;
 				index++;
 			}
-			loop_y++;
 		}
-		loop_x++;
 	}
 	x[index] = co_x;
 	y[index] = co_y;
 }
 
-t_flist	*new_fnode(char **v, char sym)
+t_flist			*new_fnode(char **v, char sym)
 {
-	t_flist *tf;
+	t_flist		*tf;
 
 	tf = (t_flist *)malloc(sizeof(t_flist));
 	if (!tf)
@@ -158,10 +81,10 @@ t_flist	*new_fnode(char **v, char sym)
 	return (tf);
 }
 
-t_flist	*append_fnode(t_flist *head, t_flist *node)
+t_flist			*append_fnode(t_flist *head, t_flist *node)
 {
-	t_flist	*tmp;
-	
+	t_flist		*tmp;
+
 	if (!head)
 		return (node);
 	else
@@ -174,9 +97,9 @@ t_flist	*append_fnode(t_flist *head, t_flist *node)
 	}
 }
 
-int	ft_get_list_length(t_flist *list)
+int				ft_get_list_length(t_flist *list)
 {
-	int i;
+	int			i;
 
 	i = 0;
 	while (list)
