@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mikim <mikim@student.42.us.org>            +#+  +:+       +#+        */
+/*   By: yijhuang <yijhuang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/16 05:00:14 by mikim             #+#    #+#             */
-/*   Updated: 2017/03/17 15:45:33 by mikim            ###   ########.fr       */
+/*   Created: 2019/03/02 22:35:13 by yijhuang          #+#    #+#             */
+/*   Updated: 2019/03/02 22:37:13 by yijhuang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,3 @@ void	ft_print(char **res)
 		write(1, "\n", 1);
 	}
 }
-
-// void	ft_print_list(t_flist **list)
-// {
-// 	t_flist	*tmp;
-
-// 	tmp = *list;
-// 	int i;
-// 	if (list && tmp)
-// 	{
-// 		while (tmp)
-// 		{
-// 			i = -1;
-// 			printf("the origin point\n%d, %d %c\n", (tmp->x)[4], (tmp->y)[4],tmp->sym);
-// 			while (++i < 4)
-// 				printf("%d, %d\n", (tmp->x)[i], (tmp->y)[i]);
-// 			tmp = tmp->next;
-// 		}
-// 	}
-// }
