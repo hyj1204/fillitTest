@@ -1,14 +1,14 @@
 NAME = fillit
 
 SRC = main.c \
-	  f_create.c \
-	  f_read_piece.c \
-	  f_fill.c \
-	  f_append_fnode.c \
-	  f_validation.c \
-	  f_print.c \
-	  f_free.c \
-	  f_error.c
+	  ft_create.c \
+	  ft_read_piece.c \
+	  ft_fill.c \
+	  ft_append_fnode.c \
+	  ft_validation.c \
+	  ft_print.c \
+	  ft_free.c \
+	  ft_error.c
 
 OBJ = $(SRC:.c=.o)
 
