@@ -6,7 +6,7 @@
 /*   By: yijhuang <yijhuang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 23:46:50 by yijhuang          #+#    #+#             */
-/*   Updated: 2019/03/03 10:22:19 by xinzhang         ###   ########.fr       */
+/*   Updated: 2019/03/03 11:35:36 by xinzhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef	struct	s_list
 	int				x[5];
 	int				y[5];
 	char			sym;
-	struct f_list	*next;
+	struct s_list	*next;
 }				t_flist;
 t_flist			*new_fnode(char **v, char sym);
 void			ft_format_board(char **board, int size);
