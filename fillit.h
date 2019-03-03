@@ -62,4 +62,6 @@ void	ft_open_error(void);
 void	ft_byte_error(void);
 void	ft_piece_num_error(void);
 void	ft_error(void);
+
+int main_helper(char **board, t_flist *head, int size);
 #endif

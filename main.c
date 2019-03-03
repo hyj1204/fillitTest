@@ -12,16 +12,36 @@
 
 #include "fillit.h"
 
-t_flist	*read_file_piece(char *fname)
+t_flist		*read_file_piece(char *fname)
 {
-	t_flist *head;
+	t_flist	*head;
 
 	head = NULL;
 	head = ft_read_piece(fname);
 	return (head);
 }
 
-int	main(int argc, char **argv)
+int			main_helper(char **board, t_flist *head, int size)
+{
+	int		reg;
+
+	reg = 0;
+	while (reg == 0)
+	{
+		board = ft_create_board(size);
+		reg = ft_backtracking(board, head, size);
+		if (reg == 1)
+			break ;
+		free_two_char(board);
+		size++;
+	}
+	free_list(head);
+	ft_print(board);
+	free_two_char(board);
+	return (1);
+}
+
+int			main(int argc, char **argv)
 {
 	char	**board;
 	int		pcs;
@@ -36,21 +56,11 @@ int	main(int argc, char **argv)
 		reg = 0;
 		size = 0;
 		head = read_file_piece(argv[1]);
-		pcs =  ft_get_list_length(head);
+		pcs = ft_get_list_length(head);
 		while (size * size < pcs * 4)
 			size++;
-		while (reg == 0)
-		{
-			board = ft_create_board(size);
-			reg = ft_backtracking(board, head, size);
-			if (reg == 1)
-				break ;
-			free_two_char(board);
-			size++;
-		}
-		free_list(head);
-		ft_print(board);
-		free_two_char(board);
+		if (main_helper(board, head, size))
+			return (0);
+		return (0);
 	}
-	return (0);
 }
