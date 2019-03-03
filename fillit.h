@@ -56,4 +56,6 @@ void    ft_byte_error(void);
 void    ft_piece_num_error(void);
 void    ft_piece_relate_error(void);
 void    ft_piece_sym_error(void);
+
+void	ft_get_xy_helper(char **p, int *x, int *y, int	co_x, int co_y);
 #endif
